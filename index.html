@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulateur d'envoi de SMS</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Envoyer un SMS</h1>
+    <textarea id="message" rows="4" cols="50" placeholder="Entrez votre message ici"></textarea>
+    <br>
+    <button id="sendBtn">Envoyer</button>
+    <p id="response"></p>
+
+    <script>
+        $(document).ready(function() {
+            $('#sendBtn').click(function() {
+                const message = $('#message').val();
+                if (!message) {
+                    alert('Veuillez entrer un message.');
+                    return;
+                }
+
+                $.ajax({
+                    url: '/send-message',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ message }),
+                    success: function(data) {
+                        $('#response').text(`Message: ${data.message} | Status: ${data.status} | Temps: ${data.sendTime} ms`);
+                    },
+                    error: function() {
+                        $('#response').text('Erreur lors de l\'envoi du message.');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

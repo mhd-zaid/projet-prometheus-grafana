@@ -1,0 +1,12 @@
+[
+  {
+    "message": "test",
+    "status": "success",
+    "sendTime": 1321
+  },
+  {
+    "message": "je suis lent",
+    "status": "fail",
+    "sendTime": 3651
+  }
+]
