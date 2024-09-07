@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node --watch server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,6 +20,7 @@
   "homepage": "https://github.com/mhd-zaid/projet-prometheus-grafana#readme",
   "dependencies": {
     "express": "^4.19.2",
-    "fs": "^0.0.1-security"
+    "fs": "^0.0.1-security",
+    "prom-client": "^15.1.3"
   }
 }
